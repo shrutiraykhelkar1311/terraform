@@ -1,23 +1,13 @@
-terraform {
-  required_providers {
-    aws = {
-      source = "hashicorp/aws"
-      version = "5.38.0"
-    }
-  }
-}
-
 provider "aws" {
-  # Configuration options
-    region  = "us-east-1"
-    
+  region     = "us-west-2"
+  access_key = "AKIAU6GDU5L5JFTBX64T"
+  secret_key = "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"
 }
-
-resource "aws_instance" "server" {
-  ami           = "ami-0c7217cdde317cfec"
-  instance_type = "t2.micro"
-
-  tags = {
-    Name = "shruti"
-  }
+resource "aws_instance" "web" {
+    ami ="ami-07d9b9ddc6cd8dd30"
+    instance_type = "t2.micro"
+    tag = {
+        name = "first-tf-instance"
+    }
+  
 }
